@@ -1,4 +1,4 @@
-# Boiler-Docker
+# Covid-backend
 
 el codigo del backend de encuentra dentro de la carpeta **app**
 
@@ -20,9 +20,9 @@ LANG=C.UTF-8
 LC_ALL=C.UTF-8
 PROJECT_NAME=backend
 SECRET_KEY=SECRET
-POSTGRES_DB=oswal
-POSTGRES_USER=oswal
-POSTGRES_PASSWORD=test
+POSTGRES_DB=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
 POSTGRES_HOST=postgres
 ```
 
@@ -45,15 +45,22 @@ despues de ejecutar ese comando nos saldra algo similar a esto:
     Starting docker-shop-api_nginx_1             ... done
     Starting docker-shop-api_daphne_1            ... done
 
-si todo sale done podremos ir al [http://0.0.0.0:3002/](http://0.0.0.0:3002/ "http://0.0.0.0:3002/") donde vive nuestra app y podremos ver la documentación de la api.
+si todo sale done podremos ir al [http://0.0.0.0:3008/](http://0.0.0.0:3008/ "http://0.0.0.0:3008/") donde vive nuestra app y podremos ver la documentación de la api.
 
 lo siguiente que debemos hacer es seguir estos comandos para aplicar las migraciones y crear un usuario en nuestro administrador:
 - `docker-compose exec app python manage.py makemigrations`
 - `docker-compose exec app python manage.py migrate`
 
+o simplemente en la raiz del proyecto:
+- `sh migrate.sh`
+
+
 para crear un super usuario en nuestro administrador debemos ejecutar el siguiente comando:
 
 `docker-compose exec app python manage.py createsuperuser`
+
+o simplemente en la raiz del proyeto:
+- `sh create_user.sh`
 
 para poder hacer uso de nuestro backend debemos crear las tiendas en el admin y usuarios de las tiendas, luego debemos logearnos en nuestra aplicación de angular y podemos ver funcionando la aplicación conectada al backend.
 

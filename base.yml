@@ -6,7 +6,7 @@ services:
       - ./app:/app
 
   postgres:
-    image: postgres:10.1
+    image: mdillon/postgis:10
     env_file: .env
 
   redis:

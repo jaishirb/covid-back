@@ -21,7 +21,7 @@ PROJECT_NAME = os.environ.get('PROJECT_NAME')
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 ALLOWED_HOSTS = ['*']
 
@@ -34,6 +34,8 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django.contrib.gis'
 ]
 
 THIRD_PARTY_APPS = [
@@ -45,11 +47,12 @@ THIRD_PARTY_APPS = [
     'rest_framework_swagger',
     'cloudinary',
     'channels',
-    'rest_auth'
+    'rest_auth',
+    'storages',
 ]
 
+#'backend.apps.activos',
 BACKEND_APPS = [
-
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + BACKEND_APPS
@@ -88,10 +91,17 @@ WSGI_APPLICATION = '{0}.wsgi.application'.format(PROJECT_NAME)
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_S3_BUCKET', '')
+AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION', '')
+AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL', '')
+AWS_QUERYSTRING_AUTH = False
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': os.environ.get('POSTGRES_DB', ''),
         'USER': os.environ.get('POSTGRES_USER', ''),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
@@ -118,8 +128,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 30,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',

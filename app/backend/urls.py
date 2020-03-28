@@ -6,7 +6,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 router = DefaultRouter()
 
-schema_view = get_swagger_view(title='Mahou-forms Api')
+schema_view = get_swagger_view(title='Boilerplate Api')
 
 PREFIX_URL = settings.PREFIX_URL
 urlpatterns = [

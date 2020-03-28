@@ -7,7 +7,7 @@ services:
     links:
       - app
     ports:
-      - "3002:80"
+      - "3008:80"
 
   postgres:
     extends:
@@ -61,7 +61,7 @@ services:
     links:
       - redis
       - postgres
-  
+
   websockets_worker:
     extends:
       file: base.yml
@@ -74,7 +74,7 @@ services:
     links:
       - app
       - redis
-      
+
   daphne:
     extends:
       file: base.yml
@@ -87,6 +87,7 @@ services:
     links:
       - app
       - redis
+
 
 
 
