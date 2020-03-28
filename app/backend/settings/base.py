@@ -99,7 +99,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_S3_BUCKET', '')
 AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION', '')
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL', '')
-AWS_QUERYSTRING_AUTH = False
+AWS_QUERYSTRING_AUTH = True
 
 DATABASES = {
     'default': {
