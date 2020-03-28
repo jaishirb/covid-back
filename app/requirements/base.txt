@@ -1,6 +1,9 @@
 Django==2.2
 django-cors-headers==2.1.0
 djangorestframework==3.9
+django-admin-rangefilter==0.3.12
+django-extensions==2.1.6
+djangorestframework-gis==0.14
 django-filter==1.1.0
 psycopg2==2.8.4
 psycopg2-binary==2.8.4

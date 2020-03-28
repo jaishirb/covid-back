@@ -43,12 +43,16 @@ THIRD_PARTY_APPS = [
     'django_celery_results',
     'corsheaders',
     'rest_framework',
+    'rest_framework_gis',
+    'django.contrib.sites',
+    'django_extensions',
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'cloudinary',
     'channels',
     'rest_auth',
     'storages',
+    'rangefilter',
 ]
 #'backend.apps.mascotas',
 BACKEND_APPS = [
@@ -114,9 +118,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
