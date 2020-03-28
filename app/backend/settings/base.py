@@ -53,6 +53,8 @@ THIRD_PARTY_APPS = [
 
 #'backend.apps.activos',
 BACKEND_APPS = [
+    'backend.apps.usuarios',
+    'backend.apps.reportes',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + BACKEND_APPS
