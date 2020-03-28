@@ -45,7 +45,6 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework_gis',
     'django.contrib.sites',
-    'django_extensions',
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'cloudinary',
