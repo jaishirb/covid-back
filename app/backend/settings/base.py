@@ -51,6 +51,7 @@ THIRD_PARTY_APPS = [
 ]
 #'backend.apps.mascotas',
 BACKEND_APPS = [
+    'backend.apps.usuarios'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + BACKEND_APPS

@@ -6,7 +6,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 router = DefaultRouter()
 
-schema_view = get_swagger_view(title='Petti Api')
+schema_view = get_swagger_view(title='Covid Api')
 
 PREFIX_URL = settings.PREFIX_URL
 urlpatterns = [
@@ -14,5 +14,6 @@ urlpatterns = [
       url(r'^{}auth/'.format(PREFIX_URL), include('rest_auth.urls')),
       url(r'^{}$'.format(PREFIX_URL), schema_view),
       url(r'^{}api/'.format(PREFIX_URL), include(router.urls)),
+      url(r'^{}api/v1/usuarios/'.format(PREFIX_URL), include('backend.apps.usuarios.urls')),
 ]
 
