@@ -61,7 +61,7 @@ services:
     links:
       - redis
       - postgres
-  
+
   websockets_worker:
     extends:
       file: base.yml
@@ -74,7 +74,7 @@ services:
     links:
       - app
       - redis
-      
+
   daphne:
     extends:
       file: base.yml

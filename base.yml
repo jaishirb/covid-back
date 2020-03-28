@@ -6,7 +6,7 @@ services:
       - ./app:/app
 
   postgres:
-    image: postgres:10.1
+    image: mdillon/postgis:10
     env_file: .env
 
   redis:
@@ -43,7 +43,7 @@ services:
     env_file: .env
     restart: on-failure
     command: python3 manage.py runworker --only-channels=http.* --only-channels=websocket.* -v2
-  
+
   daphne:
     build: ./app
     command: daphne -b 0.0.0.0 -p 8001 $PROJECT_NAME.asgi:channel_layer
@@ -51,5 +51,4 @@ services:
       - ./app:/app
     env_file: .env
     restart: on-failure
-
  

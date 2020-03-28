@@ -35,6 +35,7 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.gis'
 ]
 
 THIRD_PARTY_APPS = [
