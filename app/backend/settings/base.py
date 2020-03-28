@@ -49,11 +49,8 @@ THIRD_PARTY_APPS = [
     'rest_auth',
     'storages',
 ]
-
+#'backend.apps.mascotas',
 BACKEND_APPS = [
-    'backend.apps.mascotas',
-    'backend.apps.users',
-    'backend.apps.shop'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + BACKEND_APPS
