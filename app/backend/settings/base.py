@@ -175,6 +175,6 @@ CHANNEL_LAYERS = {
         'ROUTING': 'backend.routing.channel_routing',
     },
 }
-
+SITE_ID=1
 PREFIX_URL = os.environ.get('PREFIX_URL', '')
 if PREFIX_URL is not '': PREFIX_URL = '%s/' % PREFIX_URL
