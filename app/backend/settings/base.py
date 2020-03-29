@@ -44,7 +44,6 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_gis',
-    'django.contrib.sites',
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'cloudinary',
@@ -175,6 +174,6 @@ CHANNEL_LAYERS = {
         'ROUTING': 'backend.routing.channel_routing',
     },
 }
-SITE_ID=1
+
 PREFIX_URL = os.environ.get('PREFIX_URL', '')
 if PREFIX_URL is not '': PREFIX_URL = '%s/' % PREFIX_URL
