@@ -1,47 +1,8 @@
 from django.contrib.gis.db import models
 
 from backend.apps.usuarios.models import UsuarioCovid
-from backend.apps.utils.constants import TIPO_PERSONA
+from backend.apps.utils.constants import TIPO_PERSONA, ESTADOS_REPORTES
 from backend.apps.utils.models import ModelBase
-
-
-class ReporteCovid(ModelBase):
-    nombre = models.CharField(max_length=45)
-    edad = models.PositiveIntegerField()
-    identificacion = models.CharField(max_length=12)
-    tipo_persona = models.CharField(
-        max_length=24,
-        choices=TIPO_PERSONA
-    )
-    usuario = models.ForeignKey(
-        UsuarioCovid,
-        on_delete=models.CASCADE
-    )
-
-    def __str__(self):
-        return str(self.id)
-
-    class Meta:
-        verbose_name = 'Reporte Covid'
-        verbose_name_plural = 'Reportes covid'
-
-
-class UbicacionesCovid(ModelBase):
-    fecha = models.DateField()
-    direccion = models.CharField(max_length=120)
-    ubicacion = models.PointField(blank=True, null=True)
-    reporte_covid = models.ForeignKey(
-        ReporteCovid,
-        on_delete=models.CASCADE,
-    )
-
-    def __str__(self):
-        return self.direccion
-
-    class Meta:
-        verbose_name = 'Ubicacion covid'
-        verbose_name_plural = 'Ubicaciones covid'
-
 
 
 class TipoNecesidad(ModelBase):
@@ -75,9 +36,21 @@ class ReporteNecesidad(ModelBase):
         UsuarioCovid,
         on_delete=models.CASCADE
     )
+    estado = models.CharField(
+        max_length=45,
+        choices=ESTADOS_REPORTES,
+        default='Activo'
+    )
 
     def __str__(self):
         return str(self.id)
+
+    def get_ubicaciones(self):
+        data = UbicacionesNecesidad.objects.filter(
+            reporte_necesidad=self
+        )
+        from backend.apps.reportes.serializers import UbicacionesNecesidadSerializer
+        return UbicacionesNecesidadSerializer(data, many=True).data
 
     class Meta:
         verbose_name = 'Reporte necesidad'

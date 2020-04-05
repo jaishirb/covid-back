@@ -17,6 +17,7 @@ urlpatterns = [
       url(r'^{}$'.format(PREFIX_URL), schema_view),
       url(r'^{}api/'.format(PREFIX_URL), include(router.urls)),
       url(r'^{}api/v1/usuarios/'.format(PREFIX_URL), LoginView.as_view(), name='rest_login'),
+      url(r'^{}api/v1/usuarios_covid/'.format(PREFIX_URL), include('backend.apps.reportes.urls')),
       url(r'^{}api/v1/reportes/'.format(PREFIX_URL), include('backend.apps.reportes.urls')),
 ]
 

@@ -13,18 +13,6 @@ class TipoNecesidadViewSet(viewsets.ModelViewSet):
     model = models.TipoNecesidad
 
 
-class ReporteCovidViewSet(viewsets.ModelViewSet):
-    queryset = models.ReporteCovid.objects.all()
-    serializer_class = serializers.ReporteCovidSerializer
-    model = models.ReporteCovid
-
-
-class UbicacionesCovidViewSet(viewsets.ModelViewSet):
-    queryset = models.UbicacionesCovid.objects.all()
-    serializer_class = serializers.UbicacionesCovidSerializer
-    model = models.UbicacionesCovid
-
-
 class ReporteNecesidadViewSet(viewsets.ModelViewSet):
     queryset = models.ReporteNecesidad.objects.all()
     serializer_class = serializers.ReporteNecesidadSerializer

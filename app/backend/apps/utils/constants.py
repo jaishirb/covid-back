@@ -3,3 +3,8 @@ TIPO_PERSONA = (
     ('Desempleado', 'Desempleado'),
     ('Otro', 'Otro')
 )
+
+ESTADOS_REPORTES = (
+    ('Activo', 'Activo'),
+    ('Resuelto', 'Resuelto'),
+)

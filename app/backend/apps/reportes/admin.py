@@ -17,46 +17,6 @@ class TipoNecesidadAdmin(admin.ModelAdmin):
     ]
 
 
-@admin.register(models.ReporteCovid)
-class ReporteCovidAdmin(admin.ModelAdmin):
-    list_display = [
-        'id',
-        'nombre',
-        'edad',
-        'identificacion',
-        'tipo_persona',
-        'usuario',
-    ]
-    search_fields = [
-        'usuario',
-        'nombre',
-        'identificacion'
-    ]
-
-    list_filter = [
-        'tipo_persona',
-        'edad'
-    ]
-
-
-@admin.register(models.UbicacionesCovid)
-class UbicacionesCovidAdmin(admin.ModelAdmin):
-    list_display = [
-        'id',
-        'fecha',
-        'direccion',
-        'ubicacion',
-        'reporte_covid',
-    ]
-    search_fields = [
-        'direccion',
-    ]
-
-    list_filter = [
-        'fecha',
-    ]
-
-
 @admin.register(models.ReporteNecesidad)
 class ReporteNecesidadAdmin(admin.ModelAdmin):
     list_display = [
