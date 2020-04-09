@@ -1,12 +1,7 @@
 from django.contrib.gis.db import models
 
 from backend.apps.usuarios.models import UsuarioCovid
-<<<<<<< HEAD
-from backend.apps.utils.constants import TIPO_PERSONA, ESTADOS_REPORTES
-from backend.apps.utils.models import ModelBase
-
-
-=======
+from backend.apps.utils.constants import ESTADOS_REPORTES
 from backend.apps.utils.constants import TIPO_PERSONA
 from backend.apps.utils.models import ModelBase
 
@@ -49,8 +44,6 @@ class UbicacionesCovid(ModelBase):
         verbose_name_plural = 'Ubicaciones covid'
 
 
-
->>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
 class TipoNecesidad(ModelBase):
     nombre = models.CharField(max_length=45)
 
@@ -80,21 +73,18 @@ class ReporteNecesidad(ModelBase):
     )
     usuario = models.ForeignKey(
         UsuarioCovid,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        blank=True
     )
-<<<<<<< HEAD
     estado = models.CharField(
         max_length=45,
         choices=ESTADOS_REPORTES,
         default='Activo'
     )
-=======
->>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
 
     def __str__(self):
         return str(self.id)
 
-<<<<<<< HEAD
     def get_ubicaciones(self):
         data = UbicacionesNecesidad.objects.filter(
             reporte_necesidad=self
@@ -102,8 +92,6 @@ class ReporteNecesidad(ModelBase):
         from backend.apps.reportes.serializers import UbicacionesNecesidadSerializer
         return UbicacionesNecesidadSerializer(data, many=True).data
 
-=======
->>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
     class Meta:
         verbose_name = 'Reporte necesidad'
         verbose_name_plural = 'Reporte necesidades'

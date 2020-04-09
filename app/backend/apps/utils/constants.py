@@ -6,5 +6,6 @@ TIPO_PERSONA = (
 
 ESTADOS_REPORTES = (
     ('Activo', 'Activo'),
+    ('En proceso', 'En proceso'),
     ('Resuelto', 'Resuelto'),
 )

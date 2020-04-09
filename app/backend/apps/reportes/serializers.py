@@ -3,6 +3,8 @@ from . import models
 from backend.apps.utils.serializers import CustomSerializer
 from rest_framework import serializers
 
+from ..utils.shortcuts import get_object_or_none
+
 
 class TipoNecesidadSerializer(CustomSerializer):
 
@@ -18,7 +20,6 @@ class TipoNecesidadSerializer(CustomSerializer):
 
 
 class ReporteNecesidadSerializer(CustomSerializer):
-    
     class Meta:
         model = models.ReporteNecesidad
         exclude = [
@@ -29,6 +30,19 @@ class ReporteNecesidadSerializer(CustomSerializer):
         extra_fields = [
             'ubicaciones'
         ]
+
+    def create(self, validate_data):
+        if not self.context['request'].user.is_anonymous:
+            email_usuario = self.context['request'].user.email
+            usuario = get_object_or_none(models.UsuarioCovid, email=email_usuario)
+            if usuario:
+                validate_data['usuario'] = usuario
+                instance = models.ReporteNecesidad.objects.create(
+                    **validate_data
+                )
+                return instance
+            raise serializers.ValidationError({'error': 'El usuario no es de tipo covid.'})
+        raise serializers.ValidationError({'error': 'El usuario debe estar autenticado.'})
 
 
 class UbicacionesNecesidadSerializer(CustomSerializer):
