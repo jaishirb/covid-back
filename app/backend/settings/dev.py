@@ -23,7 +23,11 @@ MIDDLEWARE = [
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
 MEDIA_ROOT = 'media'
+=======
+# MEDIA_ROOT = 'media'
+>>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
 MEDIA_URL = '/media/'
 
 CORS_ORIGIN_ALLOW_ALL = True

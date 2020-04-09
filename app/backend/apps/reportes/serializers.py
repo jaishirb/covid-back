@@ -5,6 +5,7 @@ from rest_framework import serializers
 
 
 class TipoNecesidadSerializer(CustomSerializer):
+
     class Meta:
         model = models.TipoNecesidad
         exclude = [
@@ -17,9 +18,7 @@ class TipoNecesidadSerializer(CustomSerializer):
 
 
 class ReporteNecesidadSerializer(CustomSerializer):
-    ubicaciones = serializers.ReadOnlyField(source='get_ubicaciones')
-
-
+    
     class Meta:
         model = models.ReporteNecesidad
         exclude = [

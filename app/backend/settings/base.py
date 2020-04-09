@@ -21,7 +21,11 @@ PROJECT_NAME = os.environ.get('PROJECT_NAME')
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = os.environ.get('SECRET_KEY')
+=======
+SECRET_KEY = 'SECRET_KEY'
+>>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
 
 ALLOWED_HOSTS = ['*']
 
@@ -43,15 +47,25 @@ THIRD_PARTY_APPS = [
     'django_celery_results',
     'corsheaders',
     'rest_framework',
+<<<<<<< HEAD
+=======
+    'rest_framework_gis',
+>>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'cloudinary',
     'channels',
     'rest_auth',
     'storages',
+<<<<<<< HEAD
 ]
 
 #'backend.apps.activos',
+=======
+    'rangefilter',
+]
+#'backend.apps.mascotas',
+>>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
 BACKEND_APPS = [
     'backend.apps.usuarios',
     'backend.apps.reportes',
@@ -99,7 +113,11 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_S3_BUCKET', '')
 AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION', '')
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL', '')
+<<<<<<< HEAD
 AWS_QUERYSTRING_AUTH = True
+=======
+AWS_QUERYSTRING_AUTH = False
+>>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
 
 DATABASES = {
     'default': {
@@ -115,9 +133,15 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
+<<<<<<< HEAD
 LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
+=======
+LANGUAGE_CODE = 'es-co'
+
+TIME_ZONE = 'America/Bogota'
+>>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
 
 USE_I18N = True
 
@@ -131,7 +155,11 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+<<<<<<< HEAD
     'PAGE_SIZE': 10,
+=======
+    'PAGE_SIZE': 40,
+>>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',

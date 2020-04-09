@@ -1,5 +1,6 @@
 db.sqlite3
 *.py[cod]
+#app/static
 app/client
 app/media
 .env
@@ -10,4 +11,4 @@ redis-data
 .idea
 .DS_Store
 .vscode/
-/app/backend/static/
+#/app/backend/static/

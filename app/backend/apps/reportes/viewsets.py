@@ -12,12 +12,10 @@ class TipoNecesidadViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.TipoNecesidadSerializer
     model = models.TipoNecesidad
 
-
 class ReporteNecesidadViewSet(viewsets.ModelViewSet):
     queryset = models.ReporteNecesidad.objects.all()
     serializer_class = serializers.ReporteNecesidadSerializer
     model = models.ReporteNecesidad
-
 
 class UbicacionesNecesidadViewSet(viewsets.ModelViewSet):
     queryset = models.UbicacionesNecesidad.objects.all()

@@ -20,9 +20,15 @@ LANG=C.UTF-8
 LC_ALL=C.UTF-8
 PROJECT_NAME=backend
 SECRET_KEY=SECRET
+<<<<<<< HEAD
 POSTGRES_DB=postgres
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
+=======
+POSTGRES_DB=oswal
+POSTGRES_USER=oswal
+POSTGRES_PASSWORD=test
+>>>>>>> 40d9cb136e6683147195f16a9e95c9506805266e
 POSTGRES_HOST=postgres
 ```
 
@@ -58,11 +64,6 @@ o simplemente en la raiz del proyecto:
 para crear un super usuario en nuestro administrador debemos ejecutar el siguiente comando:
 
 `docker-compose exec app python manage.py createsuperuser`
-
-o simplemente en la raiz del proyeto:
-- `sh create_user.sh`
-
-para poder hacer uso de nuestro backend debemos crear las tiendas en el admin y usuarios de las tiendas, luego debemos logearnos en nuestra aplicación de angular y podemos ver funcionando la aplicación conectada al backend.
 
 si queremos detener nuestra imagen podemos hacerlo con este comando:
 
